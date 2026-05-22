@@ -26,7 +26,7 @@ Generated from: dev-docs/PRD.md
   **Acceptance Criteria:**
   - **Given** dogs are seeded, **When** the home page loads, **Then** each dog's name, city name, and walker name (or a "No walker" placeholder) are visible.
 
-- [ ] **Step 5: View Dog Details (US2)**
+- [x] **Step 5: View Dog Details (US2)**
   Add `GET /api/dogs/{id}` to `Program.cs`, returning 404 if the dog does not exist. Create `DogDetails.jsx` to display the dog's name, city, and current walker. Add the `/dogs/:id` route in `index.jsx` and make each dog name in `Home.jsx` a clickable link that navigates there.
 
   **Acceptance Criteria:**
