@@ -89,4 +89,17 @@ app.MapPost("/api/cities", (City city) =>
     });
 });
 
+app.MapGet("/api/dogs", () =>
+{
+    return dogs.Select(dog => new DogDTO
+    {
+        Id = dog.Id,
+        Name = dog.Name,
+        CityId = dog.CityId,
+        CityName = cities.First(c => c.Id == dog.CityId).Name,
+        WalkerId = dog.WalkerId,
+        WalkerName = walkers.FirstOrDefault(w => w.Id == dog.WalkerId)?.Name
+    });
+});
+
 app.Run();
