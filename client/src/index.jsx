@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./Home";
 import { CityList } from "./CityList";
+import { DogDetails } from "./DogDetails";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="cities" element={<CityList />} />
+        <Route path="dogs/:id" element={<DogDetails />} />
       </Route>
     </Routes>
   </BrowserRouter>,

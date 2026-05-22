@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [dogs, setDogs] = useState([]);
@@ -15,7 +16,7 @@ export default function Home() {
       <ul>
         {dogs.map((dog) => (
           <li key={dog.id}>
-            {dog.name} — {dog.cityName} — {dog.walkerName ?? "No walker"}
+            <Link to={`/dogs/${dog.id}`}>{dog.name}</Link> — {dog.cityName} — {dog.walkerName ?? "No walker"}
           </li>
         ))}
       </ul>
