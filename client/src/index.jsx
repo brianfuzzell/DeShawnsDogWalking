@@ -8,6 +8,7 @@ import { Home } from "./Home";
 import { CityList } from "./CityList";
 import { DogDetails } from "./DogDetails";
 import { AddDogForm } from "./AddDogForm";
+import { WalkerList } from "./WalkerList.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,12 +19,8 @@ root.render(
         <Route path="cities" element={<CityList />} />
         <Route path="dogs/add" element={<AddDogForm />} />
         <Route path="dogs/:id" element={<DogDetails />} />
+        <Route path="walkers" element={<WalkerList />} />
       </Route>
     </Routes>
-  </BrowserRouter>,
+  </BrowserRouter>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
