@@ -13,7 +13,7 @@ Generated from: dev-docs/PRD.md
 - [x] **Step 2: C# Models and Seed Data**
   Create the four C# record/class types (`Dog`, `Walker`, `City`, `WalkerCity`) and declare the four `List<T>` collections at the top of `Program.cs`. Pre-seed each list with enough sample records to exercise all future features (at least 3 cities, 3 walkers, 4 dogs, and several walker-city pairings). This is pure backend setup; no endpoints yet, but all later steps depend on these types and data being in place.
 
-- [ ] **Step 3: Cities - View and Add (US8)**
+- [x] **Step 3: Cities - View and Add (US8)**
   Build the Cities feature end-to-end. Add `GET /api/cities` and `POST /api/cities` endpoints to `Program.cs`. Create `CityList.jsx` with the city list and the name-input/Add-button form. Wire the "Cities" nav link in `App.jsx` and add the `/cities` route in `index.jsx`. The city list is foundational: the Add Dog form in a later step needs `GET /api/cities` to populate its dropdown.
 
   **Acceptance Criteria:**
