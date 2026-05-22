@@ -46,7 +46,7 @@ Generated from: dev-docs/PRD.md
   **Acceptance Criteria:**
   - **Given** a dog is in the list, **When** the user clicks Remove, **Then** the dog disappears from the list immediately and `GET /api/dogs` no longer returns it.
 
-- [ ] **Step 8: View Walkers by City (US5)**
+- [x] **Step 8: View Walkers by City (US5)**
   Add `GET /api/walkers` to `Program.cs`. Support an optional `?cityId=` query parameter that filters the result to walkers who serve that city. Each walker response must include their city list. Create `WalkerList.jsx` showing all walkers with a city dropdown filter. Add the "Walkers" nav link in `App.jsx` and the `/walkers` route in `index.jsx`. This step lays the groundwork for the walker-specific features in the steps that follow.
 
   **Acceptance Criteria:**
