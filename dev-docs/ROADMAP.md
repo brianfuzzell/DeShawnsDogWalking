@@ -20,7 +20,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the app is running, **When** a user navigates to the Cities page, **Then** all seeded cities are displayed.
   - **Given** the user types a city name and clicks Add, **When** the form submits, **Then** the new city appears in the list without a page reload.
 
-- [ ] **Step 4: View All Dogs (US1)**
+- [x] **Step 4: View All Dogs (US1)**
   Add `GET /api/dogs` to `Program.cs`. The response must include each dog's `cityName` and `walkerName` (or null) inline, not just the foreign key IDs. Update `Home.jsx` to fetch from this endpoint and render the dog list. Add the "Home" nav link in `App.jsx` if it is not already there.
 
   **Acceptance Criteria:**
