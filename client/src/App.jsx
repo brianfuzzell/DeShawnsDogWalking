@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import { Outlet } from "react-router-dom";
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <>

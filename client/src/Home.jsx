@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export const Home = () => {
   const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ export default function Home() {
   return (
     <>
       <h2>Dogs</h2>
+      <Link to="/dogs/add">Add Dog</Link>
       <ul>
         {dogs.map((dog) => (
           <li key={dog.id}>
