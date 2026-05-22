@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import Home from "./Home";
+import { Home } from "./Home";
 import { CityList } from "./CityList";
 import { DogDetails } from "./DogDetails";
 
