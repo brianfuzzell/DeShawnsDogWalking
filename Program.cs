@@ -35,15 +35,12 @@ List<WalkerCity> walkerCities = new List<WalkerCity>
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -63,5 +60,33 @@ app.MapGet("/api/hello", () =>
     return new { Message = "Welcome to DeShawn's Dog Walking" };
 });
 
+app.MapGet("/api/cities", () =>
+{
+    return cities.Select(city => new CityDTO
+    {
+        Id = city.Id,
+        Name = city.Name
+    });
+});
+
+app.MapPost("/api/cities", (City city) =>
+{
+    if (cities.Count == 0)
+    {
+        city.Id = 1;
+    }
+    else
+    {
+        city.Id = cities.Max(c => c.Id) + 1;
+    }
+
+    cities.Add(city);
+
+    return Results.Created($"/api/cities/{city.Id}", new CityDTO
+    {
+        Id = city.Id,
+        Name = city.Name
+    });
+});
 
 app.Run();
