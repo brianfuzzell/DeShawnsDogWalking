@@ -18,6 +18,14 @@ export const Home = () => {
         {dogs.map((dog) => (
           <li key={dog.id}>
             <Link to={`/dogs/${dog.id}`}>{dog.name}</Link> — {dog.cityName} — {dog.walkerName ?? "No walker"}
+            <button onClick={() => {
+              fetch(`/api/dogs/${dog.id}`, { method: "DELETE" })
+                .then((res) => {
+                  if (res.ok) {
+                    setDogs(dogs.filter((d) => d.id !== dog.id));
+                  }
+                });
+            }}>Remove</button>
           </li>
         ))}
       </ul>

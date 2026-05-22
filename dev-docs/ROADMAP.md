@@ -40,7 +40,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the user fills in a name and selects a city and submits, **When** the form posts to the API, **Then** the user is redirected to the new dog's detail page.
   - **Given** the Add Dog form loads, **When** the city dropdown renders, **Then** it lists all cities from the API (not hard-coded values).
 
-- [ ] **Step 7: Delete a Dog (US4)**
+- [x] **Step 7: Delete a Dog (US4)**
   Add `DELETE /api/dogs/{id}` to `Program.cs` (returns 204). Add a "Remove" button next to each dog in `Home.jsx`. On click, call the delete endpoint and remove the dog from the displayed list.
 
   **Acceptance Criteria:**
