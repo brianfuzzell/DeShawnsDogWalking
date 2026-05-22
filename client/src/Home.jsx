@@ -13,6 +13,7 @@ export const Home = () => {
   return (
     <>
       <h2>Dogs</h2>
+      <Link to="/dogs/add">Add Dog</Link>
       <ul>
         {dogs.map((dog) => (
           <li key={dog.id}>

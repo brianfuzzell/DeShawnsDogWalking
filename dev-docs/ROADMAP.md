@@ -33,7 +33,7 @@ Generated from: dev-docs/PRD.md
   - **Given** a dog exists, **When** a user clicks its name on the home page, **Then** they land on a detail page showing the dog's name, city, and walker (or a clear "no walker" message).
   - **Given** an ID that does not match any dog, **When** the endpoint is called, **Then** the API returns 404.
 
-- [ ] **Step 6: Add a Dog (US3)**
+- [x] **Step 6: Add a Dog (US3)**
   Add `POST /api/dogs` to `Program.cs` (returns 201 with the new dog). Create `AddDogForm.jsx` with a name field and a city dropdown populated from `GET /api/cities`. On submit, save the dog and navigate to its detail page. Add an "Add Dog" button on `Home.jsx` that links to the form, and wire the `/dogs/add` route in `index.jsx`.
 
   **Acceptance Criteria:**
