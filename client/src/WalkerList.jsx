@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const WalkerList = () => {
   const [walkers, setWalkers] = useState([]);
@@ -36,7 +37,7 @@ export const WalkerList = () => {
       <ul>
         {walkers.map((walker) => (
           <li key={walker.id}>
-            {walker.name}: {walker.cities.map((c) => c.name).join(", ")}
+            <Link to={`/walkers/${walker.id}/edit`}>{walker.name}</Link>: {walker.cities.map((c) => c.name).join(", ")}
           </li>
         ))}
       </ul>

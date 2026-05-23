@@ -53,7 +53,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the Walkers page loads with no filter, **When** the list renders, **Then** all walkers are shown with their cities.
   - **Given** the user selects a city from the dropdown, **When** the filter applies, **Then** only walkers who serve that city are shown.
 
-- [ ] **Step 9: Fetch a Single Walker (US9 - part 1)**
+- [x] **Step 9: Fetch a Single Walker (US9 - part 1)**
   Add `GET /api/walkers/{id}` to `Program.cs`. The response should include the walker's name and their city list; return 404 if the walker does not exist. Make each walker name in `WalkerList.jsx` a clickable link that navigates to `/walkers/:id/edit`, and wire that route in `index.jsx`. No form yet; this step just gets the data and navigation in place.
 
   **Acceptance Criteria:**
