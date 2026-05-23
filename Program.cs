@@ -179,6 +179,34 @@ app.MapGet("/api/walkers/{id}", (int id) =>
     });
 });
 
+app.MapPut("/api/walkers/{id}", (int id, UpdateWalkerCitiesDTO body) =>
+{
+    Walker walker = walkers.FirstOrDefault(w => w.Id == id);
+
+    if (walker == null)
+    {
+        return Results.NotFound();
+    }
+
+    List<WalkerCity> existing = walkerCities.Where(wc => wc.WalkerId == id).ToList();
+    foreach (WalkerCity wc in existing)
+    {
+        walkerCities.Remove(wc);
+    }
+
+    foreach (int cityId in body.CityIds)
+    {
+        walkerCities.Add(new WalkerCity
+        {
+            Id = walkerCities.Count == 0 ? 1 : walkerCities.Max(wc => wc.Id) + 1,
+            WalkerId = id,
+            CityId = cityId
+        });
+    }
+
+    return Results.NoContent();
+});
+
 app.MapDelete("/api/dogs/{id}", (int id) =>
 {
     Dog dog = dogs.FirstOrDefault(d => d.Id == id);
