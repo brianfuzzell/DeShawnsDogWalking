@@ -60,7 +60,7 @@ Generated from: dev-docs/PRD.md
   - **Given** a walker exists, **When** `GET /api/walkers/{id}` is called, **Then** the response includes the walker's name and their cities.
   - **Given** a walker name is clicked in the walkers list, **When** the link is followed, **Then** the browser navigates to `/walkers/:id/edit` without a 404.
 
-- [ ] **Step 10: Walker City Edit Form (US9 - part 2)**
+- [x] **Step 10: Walker City Edit Form (US9 - part 2)**
   Add `PUT /api/walkers/{id}` to `Program.cs`. It receives `{ CityIds: [int] }`, replaces all existing `WalkerCity` records for that walker with the new list, and returns 204. Create `WalkerForm.jsx` that fetches the walker via `GET /api/walkers/{id}`, renders a checkbox for every city (pre-checked for the walker's current cities), and on submit calls the PUT endpoint then redirects to the walkers list.
 
   **Acceptance Criteria:**
