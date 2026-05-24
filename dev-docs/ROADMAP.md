@@ -81,7 +81,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the user clicks a dog in the eligible list, **When** the assignment saves, **Then** they are redirected to that dog's detail page showing the walker's name.
   - **Given** the assignment is saved, **When** `GET /api/walkers/{id}/dogs` is called again, **Then** the newly assigned dog no longer appears in the eligible list.
 
-- [ ] **Step 13: Delete a Walker (US7)**
+- [x] **Step 13: Delete a Walker (US7)**
   Add `DELETE /api/walkers/{id}` to `Program.cs`. Before removing the walker, set `WalkerId = null` on every dog currently assigned to them, then return 204. Add a "Remove" button next to each walker in `WalkerList.jsx`. On click, call the delete endpoint and remove the walker from the displayed list.
 
   **Acceptance Criteria:**
