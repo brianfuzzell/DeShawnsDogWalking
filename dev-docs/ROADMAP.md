@@ -67,7 +67,7 @@ Generated from: dev-docs/PRD.md
   - **Given** the user clicks a walker's name, **When** the edit form loads, **Then** all cities are shown as checkboxes with the walker's current cities already checked.
   - **Given** the user changes the selections and submits, **When** the PUT request completes, **Then** the walker's city list is updated and the user is redirected to the walkers list.
 
-- [ ] **Step 11: View Eligible Dogs for a Walker (US6 - part 1)**
+- [x] **Step 11: View Eligible Dogs for a Walker (US6 - part 1)**
   Add `GET /api/walkers/{id}/dogs` to `Program.cs`. The endpoint returns only dogs whose `CityId` is in the walker's city list AND whose `WalkerId` is not equal to this walker's id. Create `EligibleDogs.jsx` that fetches and lists those dogs. Add an "Add Dog" button next to each walker in `WalkerList.jsx` that links to `/walkers/:id/dogs`, and wire that route in `index.jsx`.
 
   **Acceptance Criteria:**

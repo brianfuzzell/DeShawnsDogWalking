@@ -37,7 +37,8 @@ export const WalkerList = () => {
       <ul>
         {walkers.map((walker) => (
           <li key={walker.id}>
-            <Link to={`/walkers/${walker.id}/edit`}>{walker.name}</Link>: {walker.cities.map((c) => c.name).join(", ")}
+            <Link to={`/walkers/${walker.id}/edit`}>{walker.name}</Link>: {walker.cities.map((c) => c.name).join(", ")}{" "}
+            <Link to={`/walkers/${walker.id}/dogs`}>Add Dog</Link>
           </li>
         ))}
       </ul>
