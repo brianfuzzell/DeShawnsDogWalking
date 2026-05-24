@@ -74,7 +74,7 @@ Generated from: dev-docs/PRD.md
   - **Given** a walker serves City A only, **When** `GET /api/walkers/{id}/dogs` is called, **Then** only dogs in City A are returned.
   - **Given** a dog in City A is already assigned to this walker, **When** the endpoint is called, **Then** that dog is excluded from the results.
 
-- [ ] **Step 12: Assign a Dog to a Walker (US6 - part 2)**
+- [x] **Step 12: Assign a Dog to a Walker (US6 - part 2)**
   Add `PUT /api/dogs/{id}` to `Program.cs` (body: `{ WalkerId }`, returns 200 with the updated dog). Wire a click handler in `EligibleDogs.jsx` so that clicking a dog calls this endpoint and then navigates to that dog's detail page.
 
   **Acceptance Criteria:**
