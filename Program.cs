@@ -271,4 +271,28 @@ app.MapDelete("/api/dogs/{id}", (int id) =>
     return Results.NoContent();
 });
 
+app.MapDelete("/api/walkers/{id}", (int id) =>
+{
+    Walker walker = walkers.FirstOrDefault(w => w.Id == id);
+
+    if (walker == null)
+    {
+        return Results.NotFound();
+    }
+
+    foreach (Dog dog in dogs.Where(d => d.WalkerId == id).ToList())
+    {
+        dog.WalkerId = null;
+    }
+
+    List<WalkerCity> existing = walkerCities.Where(wc => wc.WalkerId == id).ToList();
+    foreach (WalkerCity wc in existing)
+    {
+        walkerCities.Remove(wc);
+    }
+
+    walkers.Remove(walker);
+    return Results.NoContent();
+});
+
 app.Run();

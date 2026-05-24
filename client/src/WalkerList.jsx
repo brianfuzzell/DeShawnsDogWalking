@@ -19,6 +19,11 @@ export const WalkerList = () => {
       .then(setWalkers);
   }, [selectedCityId]);
 
+  const handleDelete = async (id) => {
+    await fetch(`/api/walkers/${id}`, { method: "DELETE" });
+    setWalkers(walkers.filter((w) => w.id !== id));
+  };
+
   return (
     <div>
       <h2>Walkers</h2>
@@ -38,7 +43,8 @@ export const WalkerList = () => {
         {walkers.map((walker) => (
           <li key={walker.id}>
             <Link to={`/walkers/${walker.id}/edit`}>{walker.name}</Link>: {walker.cities.map((c) => c.name).join(", ")}{" "}
-            <Link to={`/walkers/${walker.id}/dogs`}>Add Dog</Link>
+            <Link to={`/walkers/${walker.id}/dogs`}>Add Dog</Link>{" "}
+            <button onClick={() => handleDelete(walker.id)}>Remove</button>
           </li>
         ))}
       </ul>
