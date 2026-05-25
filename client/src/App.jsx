@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import { Outlet } from "react-router-dom";
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <>
@@ -13,6 +13,9 @@ function App() {
             <NavbarBrand href="/">🐕‍🦺 🐩 DeShawn's Dog Walking</NavbarBrand>
             <NavItem>
               <NavLink href="/walkers">Walkers</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/cities">Cities</NavLink>
             </NavItem>
           </Nav>
         </Navbar>
