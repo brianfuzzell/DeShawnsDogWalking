@@ -20,12 +20,12 @@ export const AddDogForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await fetch("/api/dogs", {
+    const response = await fetch("/api/dogs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, cityId }),
     });
-    const newDog = await res.json();
+    const newDog = await response.json();
     navigate(`/dogs/${newDog.id}`);
   };
 

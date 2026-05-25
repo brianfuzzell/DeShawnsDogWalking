@@ -11,8 +11,8 @@ export const Home = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    const res = await fetch(`/api/dogs/${id}`, { method: "DELETE" });
-    if (res.ok) {
+    const response = await fetch(`/api/dogs/${id}`, { method: "DELETE" });
+    if (response.ok) {
       setDogs(dogs.filter((d) => d.id !== id));
     }
   };
