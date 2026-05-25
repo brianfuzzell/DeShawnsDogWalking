@@ -10,18 +10,16 @@ export const CityList = () => {
       .then(setCities);
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch("/api/cities", {
+    const response = await fetch("/api/cities", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: newCityName }),
-    })
-      .then((res) => res.json())
-      .then((newCity) => {
-        setCities([...cities, newCity]);
-        setNewCityName("");
-      });
+    });
+    const newCity = await response.json();
+    setCities([...cities, newCity]);
+    setNewCityName("");
   };
 
   return (

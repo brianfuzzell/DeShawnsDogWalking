@@ -18,17 +18,15 @@ export const AddDogForm = () => {
       });
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch("/api/dogs", {
+    const response = await fetch("/api/dogs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, cityId }),
-    })
-      .then((res) => res.json())
-      .then((newDog) => {
-        navigate(`/dogs/${newDog.id}`);
-      });
+    });
+    const newDog = await response.json();
+    navigate(`/dogs/${newDog.id}`);
   };
 
   return (

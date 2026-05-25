@@ -33,13 +33,14 @@ export const WalkerForm = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch(`/api/walkers/${id}`, {
+    await fetch(`/api/walkers/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ cityIds: selectedCityIds, name: walkerName }),
-    }).then(() => navigate("/walkers"));
+    });
+    navigate("/walkers");
   };
 
   if (!walker) {
