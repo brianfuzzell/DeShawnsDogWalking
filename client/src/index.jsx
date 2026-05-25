@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { App } from "./App.jsx";
+import { App } from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Home } from "./Home";
 import { CityList } from "./CityList";
 import { DogDetails } from "./DogDetails";
 import { AddDogForm } from "./AddDogForm";
-import { WalkerList } from "./WalkerList.jsx";
-import { WalkerForm } from "./WalkerForm.jsx";
-import { EligibleDogs } from "./EligibleDogs.jsx";
+import { WalkerList } from "./WalkerList";
+import { WalkerForm } from "./WalkerForm";
+import { EligibleDogs } from "./EligibleDogs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
