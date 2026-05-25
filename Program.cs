@@ -210,6 +210,8 @@ app.MapPut("/api/walkers/{id}", (int id, UpdateWalkerCitiesDTO body) =>
         return Results.NotFound();
     }
 
+    walker.Name = body.Name;
+
     List<WalkerCity> existing = walkerCities.Where(wc => wc.WalkerId == id).ToList();
     foreach (WalkerCity wc in existing)
     {

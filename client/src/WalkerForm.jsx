@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { WalkerList } from "./WalkerList";
 
 export const WalkerForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [walker, setWalker] = useState(null);
+  const [walkerName, setWalkerName] = useState("");
   const [cities, setCities] = useState([]);
   const [selectedCityIds, setSelectedCityIds] = useState([]);
 
@@ -14,6 +16,7 @@ export const WalkerForm = () => {
       .then((res) => res.json())
       .then((data) => {
         setWalker(data);
+        setWalkerName(data.name);
         setSelectedCityIds(data.cities.map((c) => c.id));
       });
 
@@ -35,7 +38,7 @@ export const WalkerForm = () => {
     fetch(`/api/walkers/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cityIds: selectedCityIds }),
+      body: JSON.stringify({ cityIds: selectedCityIds, name: walkerName }),
     }).then(() => navigate("/walkers"));
   };
 
@@ -47,6 +50,15 @@ export const WalkerForm = () => {
     <div>
       <h2>Edit {walker.name}</h2>
       <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="walkerName">Name</label>
+          <input
+            id="walkerName"
+            type="text"
+            value={walkerName}
+            onChange={(e) => setWalkerName(e.target.value)}
+          />
+        </div>
         {cities.map((city) => (
           <div key={city.id}>
             <label>
@@ -59,7 +71,7 @@ export const WalkerForm = () => {
             </label>
           </div>
         ))}
-        <button type="submit">Save</button>
+        <button type="submit">Update</button>
       </form>
     </div>
   );
