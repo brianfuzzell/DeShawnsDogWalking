@@ -10,6 +10,13 @@ export const Home = () => {
       .then(setDogs);
   }, []);
 
+  const handleDelete = async (id) => {
+    const res = await fetch(`/api/dogs/${id}`, { method: "DELETE" });
+    if (res.ok) {
+      setDogs(dogs.filter((d) => d.id !== id));
+    }
+  };
+
   return (
     <>
       <h2>Dogs</h2>
@@ -18,14 +25,7 @@ export const Home = () => {
         {dogs.map((dog) => (
           <li key={dog.id}>
             <Link to={`/dogs/${dog.id}`}>{dog.name}</Link> — {dog.cityName} — {dog.walkerName ?? "No walker"}
-            <button onClick={() => {
-              fetch(`/api/dogs/${dog.id}`, { method: "DELETE" })
-                .then((res) => {
-                  if (res.ok) {
-                    setDogs(dogs.filter((d) => d.id !== dog.id));
-                  }
-                });
-            }}>Remove</button>
+            <button onClick={() => handleDelete(dog.id)}>Remove</button>
           </li>
         ))}
       </ul>
